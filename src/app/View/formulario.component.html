@@ -1,0 +1,64 @@
+<form>
+    <div  class="form-row">
+      <div *ngFor="let value of formulario; let i = index" [ngSwitch]="formulario[i].elemento" class="form-group col-md-6">
+        
+        <div *ngSwitchCase="'input'"  class="form-group col-md-12">
+          <div *ngIf="formulario[i].type != 'checkbox'">
+            <label for="{{value.name}}" >{{value.label}}</label>
+            <input name="{{value.name}}" id="{{value.name}}" class="form-control" type="{{value.type}}" required="{{value.requred}}" />
+          </div>
+          <div *ngIf="formulario[i].type == 'checkbox'" class="form-check">
+            <br><br>
+            <input name="{{value.name}}" id="{{value.name}}"  type="{{value.type}}" required="{{value.requred}}" class="form-check-input" />
+            <label for="{{value.name}}" class="form-check-label">{{value.label}}</label>
+          </div>
+        </div>
+        <div *ngSwitchCase="'select'" class="form-group col-md-12">
+          <label for="{{value.name}}" >{{value.label}}</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option *ngFor="let opcion of value.option">{{opcion}}</option>
+          </select>
+        </div>
+        <div *ngSwitchCase="'textarea'" class="form-group col-md-12">
+          <label for="exampleFormControlTextarea1">value.name</label>
+          <textarea class="form-control" id="value.name" rows="4"></textarea>
+        </div>
+        <div *ngSwitchCase="'radio'" class="form-group col-md-12">
+          <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">{{value.name}}</legend>
+            <div class="col-sm-10">
+              <div *ngFor="let opcion of value.option; let i = index"  class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="{{value.values[i]}}" checked>
+                <label class="form-check-label" for="gridRadios1">
+                  {{opcion}}
+                </label>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'selectm'" class="form-group">
+           
+            <label for="{{value.name}}" >{{value.label}}</label>
+          <select multiple class="form-control" id="exampleFormControlSelect1">
+            <option *ngFor="let opcion of value.option" >{{opcion}}</option>
+          
+          </select>
+        </div>
+      </div>
+
+
+      
+
+  
+      <br>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary"  (Click)="guardar()" >Submit</button>
+    <br>
+    <br>
+    <br>
+
+  </form>       
+
