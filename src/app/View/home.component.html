@@ -1,0 +1,14 @@
+<h2>{{titulo}}</h2>
+{{fecha|date:'dd/MM/yy'}}
+<br>
+{{5 | conversor: 3}}
+<input type="text" [(ngModel)]="nueva">
+<button (click)="agregar()">Añadir prenda</button>
+<br>
+<ul>
+    <li *ngFor="let prenda of coleccion; let i = index">
+        {{i}} {{prenda}}
+        <button (click)="eliminar(i)">Eliminar</button>
+    </li>
+    
+</ul>

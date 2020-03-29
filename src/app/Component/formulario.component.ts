@@ -11,6 +11,8 @@ import { Component } from '@angular/core';
       formulario:Array<any>; 
 
     constructor(){
+
+        //https://raw.githubusercontent.com/siancafi12345/Formularios_dinamicos/master/src/app/Json/formulario.json
             
             this.formulario = [
                 {"elemento":"input","type":"text","requred":"true","name":"text","label":"text" },

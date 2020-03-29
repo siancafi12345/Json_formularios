@@ -1,4 +1,4 @@
-<form>
+<!--form>
     <div  class="form-row">
       <div *ngFor="let value of formulario; let i = index" [ngSwitch]="formulario[i].elemento" class="form-group col-md-6">
         
@@ -60,5 +60,43 @@
     <br>
     <br>
 
-  </form>       
+  </form-->       
 
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Complete form validation</h4>
+          <form class="cmxform" id="signupForm" method="get" action="#" novalidate="novalidate">
+            <fieldset>
+              <div class="form-group has-danger">
+                <label for="firstname">Firstname</label>
+                <input id="firstname" class="form-control form-control-danger" name="firstname" type="text" aria-invalid="true"><label id="firstname-error" class="error mt-2 text-danger" for="firstname">Please enter your firstname</label>
+              </div>
+              <div class="form-group has-danger">
+                <label for="lastname">Lastname</label>
+                <input id="lastname" class="form-control form-control-danger" name="lastname" type="text"><label id="lastname-error" class="error mt-2 text-danger" for="lastname">Please enter your lastname</label>
+              </div>
+              <div class="form-group has-danger">
+                <label for="username">Username</label>
+                <input id="username" class="form-control form-control-danger" name="username" type="text"><label id="username-error" class="error mt-2 text-danger" for="username">Please enter a username</label>
+              </div>
+              <div class="form-group has-danger">
+                <label for="password">Password</label>
+                <input id="password" class="form-control form-control-danger" name="password" type="password"><label id="password-error" class="error mt-2 text-danger" for="password">Please provide a password</label>
+              </div>
+              <div class="form-group has-danger">
+                <label for="confirm_password">Confirm password</label>
+                <input id="confirm_password" class="form-control form-control-danger" name="confirm_password" type="password"><label id="confirm_password-error" class="error mt-2 text-danger" for="confirm_password">Please provide a password</label>
+              </div>
+              <div class="form-group has-danger">
+                <label for="email">Email</label>
+                <input id="email" class="form-control form-control-danger" name="email" type="email"><label id="email-error" class="error mt-2 text-danger" for="email">Please enter a valid email address</label>
+              </div>
+              <input class="btn btn-primary" type="submit" value="Submit">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

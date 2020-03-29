@@ -13,9 +13,12 @@ export class EmpleadoComponent{
     public tabajador_externo:boolean;
     public trabajador:Array<EmpleadoModel>;
     public color:string;
+    public color_seleccionado:string;
+
     constructor(){
         this.titulo = "Componente empleados";
         this.color = "blue";
+        this.color_seleccionado= "#ccc";
     }
     ngOnInit(){
         this.empleado = new EmpleadoModel('jose',0,'pintor',true);
@@ -30,6 +33,9 @@ export class EmpleadoComponent{
     }
     cambiar(valor){
         this.tabajador_externo = valor;
+    }
+    logColorSeleccionado(){
+        console.log(this.color_seleccionado);
     }
 
 }

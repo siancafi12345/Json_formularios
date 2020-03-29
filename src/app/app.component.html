@@ -5,8 +5,30 @@
 <baner></baner>
 <br>
 <div class="container">
-<formulario></formulario>
+<!--formulario></formulario-->
 <!--empleado></empleado-->
+<hr>
+<a [routerLink]="['/home']" [routerLinkActive]="['activado']">
+    HOME
+</a>
+-
+<a [routerLink]="['/contacto']" [routerLinkActive]="['activado']">
+    CONTACTO
+</a>
+-
+<a [routerLink]="['/formulario']" [routerLinkActive]="['activado']">
+    FORMULARIO
+</a>
+-
+<a [routerLink]="['/empleado']" [routerLinkActive]="['activado']">
+    EMPLEADO
+</a>
+-
+<a [routerLink]="['/coches']" [routerLinkActive]="['activado']">
+    COCHE
+</a>
+<hr>
+<router-outlet></router-outlet>
 </div>
 
 

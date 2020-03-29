@@ -49,3 +49,27 @@
         rojo
     </li>
 </ul>
+<strong>selector de colores</strong>
+<br>
+<button (click)="logColorSeleccionado()">Log</button>
+<input type="text" [(ngModel)]="color_seleccionado"/>
+<!--[class.bordeAzul] = "color_seleccionado == '#ccc'"-->
+<!--[ngClass]="['clace1','clace2']""-->
+<pre 
+    [style.border]="color_seleccionado == 'red' ? '5px solid black' : '1px solid green'"
+    [ngClass]="{
+        bordeAzul:color_seleccionado == 'blue',
+        bordeVerde:color_seleccionado == 'green'
+    }"
+    >
+    <strong>Color elegido:</strong>
+    {{color_seleccionado}}
+</pre>
+<div [ngStyle]="{
+    'background': color_seleccionado,
+    'width': '200px',
+    'height': '200px',
+    'float' : 'right',
+    'margin-right' : '59%'}">
+</div>
+<div style="clear : both"></div>
