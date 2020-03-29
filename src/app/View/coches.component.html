@@ -1,16 +1,56 @@
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
 <h1>Componente de coches</h1>
-<form #formCoche="ngForm" (ngSubmit)="onSubmit()">
-    <p>
-        <label for="">Nombre:</label>
-        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="coche.nombre">
+<form #formCoche="ngForm" (ngSubmit)="onSubmit(); formCoche.reset();">
+    <p class="col-md-12">
+        <label for="" class="col-md-3">Nombre:</label>
+        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="coche.nombre" required class="col-md-9">
+        <span *ngIf="nombre.touched && !nombre.valid" class="col-md-12" style="color:red">El campo es requerido</span>
     </p>
-    <p>
-        <label for="">Cilindraje:</label>
-        <input type="text" name="cilindraje" #cilindraje="ngModel" [(ngModel)]="coche.cilindraje">
+    <p class="col-md-12">
+        <label for="" class="col-md-3">Cilindraje:</label>
+        <input type="text" name="cilindraje" #cilindraje="ngModel" [(ngModel)]="coche.cilindraje" required pattern="[0-9]+" class="col-md-9">
+        <span *ngIf="cilindraje.touched && !cilindraje.valid" class="col-md-12" style="color:red">El campo es incorrecto</span>
     </p>
-    <p>
-        <label for="">Color:</label>
-        <input type="text" name="color" #color="ngModel" [(ngModel)]="coche.color">
-    </p>
-    <input type="submit" value="Guardar">
+    <p class="col-md-12">
+        <label for="" class="col-md-3">Color:</label>
+        <input type="text" name="color" #color="ngModel" [(ngModel)]="coche.color" required pattern="[a-zA-Z#]+" class="col-md-9">
+        <span *ngIf="color.touched && !color.valid" class="col-md-12" style="color:red">El campo es incorrecto</span>
+    </p >
+    <input type="submit" value="Guardar" [disabled]="!formCoche.form.valid">
 </form>
+<br>
+<div style="float:left">
+    <table>
+        <tr>
+            <th>N°</th>
+            <th>Coche</th>
+            <th>Cilindrahe</th>
+            <th>Color</th>
+            <th>Eliminar</th>      
+        </tr>
+        <tr *ngFor="let carro of coches; let i = index">
+            <th>{{i +1}}</th>
+            <th>{{carro.nombre}}</th>
+            <th>{{carro.cilindraje}}</th>
+            <th>{{carro.color}}</th>
+            <th> <button (click)="eliminar(i)">si</button></th>
+        </tr>
+
+    </table>
+</div>
